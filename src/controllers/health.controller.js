@@ -1,12 +1,17 @@
+const ApiResponse = require('../utils/apiResponse');
+
 const healthController = {
   getHealth: (req, res) => {
-    return res.status(200).json({
-      status: 'OK',
+    return ApiResponse.success(res, {
       message: 'Server đang hoạt động bình thường',
-      uptime: process.uptime(),
-      timestamp: new Date().toISOString()
+      data: {
+        uptime: `${Math.floor(process.uptime())} giây`,
+        timestamp: new Date().toISOString(),
+        database: global.db ? 'connected' : 'disconnected'
+      }
     });
   }
 };
 
 module.exports = healthController;
+

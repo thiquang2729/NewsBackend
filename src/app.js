@@ -20,4 +20,12 @@ app.get('/', (req, res) => {
 // Gắn toàn bộ API routes với tiền tố /api
 app.use('/api', apiRoutes);
 
+// Middleware bắt route không tồn tại (404)
+const notFoundHandler = require('./middlewares/notFound.middleware');
+app.use(notFoundHandler);
+
+// Middleware xử lý lỗi tập trung toàn cục (Error Handler)
+const errorHandler = require('./middlewares/errorHandler.middleware');
+app.use(errorHandler);
+
 module.exports = app;
