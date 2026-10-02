@@ -1,6 +1,6 @@
-const express = require('express');
-const cors = require('cors');
-const apiRoutes = require('./routes');
+const express = require("express");
+const cors = require("cors");
+const apiRoutes = require("./routes");
 
 const app = express();
 
@@ -10,22 +10,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Route gốc chào mừng
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   res.json({
-    message: 'Chào mừng bạn đến với API Backend Nhiệm vụ 17',
-    docs: '/api/health'
+    message: "NV17",
+    docs: "/api/health",
   });
 });
 
 // Gắn toàn bộ API routes với tiền tố /api
-app.use('/api', apiRoutes);
+app.use("/api", apiRoutes);
 
 // Middleware bắt route không tồn tại (404)
-const notFoundHandler = require('./middlewares/notFound.middleware');
+const notFoundHandler = require("./middlewares/notFound.middleware");
 app.use(notFoundHandler);
 
 // Middleware xử lý lỗi tập trung toàn cục (Error Handler)
-const errorHandler = require('./middlewares/errorHandler.middleware');
+const errorHandler = require("./middlewares/errorHandler.middleware");
 app.use(errorHandler);
 
 module.exports = app;
