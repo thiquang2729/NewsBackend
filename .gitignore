@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# SQLite Database files
+*.sqlite
+*.sqlite3
+*.db
+src/data/*.sqlite
+src/data/*.sqlite3
+src/data/*.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# Uploads directory
+uploads/
+public/uploads/
+
+# OS and Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
